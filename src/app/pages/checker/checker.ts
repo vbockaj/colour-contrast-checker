@@ -2,10 +2,8 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ColorService } from '../../core/color.service';
-import { form } from '@angular/forms/signals';
 
 const HEX = /^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
-
 
 @Component({
   selector: 'app-checker',
@@ -36,6 +34,11 @@ export class Checker {
     const r = this.ratio();
     return r === null ? null : this.colors.wcag(r);
   });
+
+  showError(name: 'fg' | 'bg'): boolean {
+    const c = this.form.controls[name];
+    return c.invalid && c.touched;
+  }
 
   setFromPicker(ctrl: 'fg' | 'bg', value: string) {
     this.form.controls[ctrl].setValue(value);

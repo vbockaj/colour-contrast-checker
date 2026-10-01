@@ -5,12 +5,13 @@
     <label for="fg">Text colour (hex)</label>
     <div class="row">
       <input id="fg" type="text" formControlName="fg" autocomplete="off" spellcheck="false"
-             [attr.aria-invalid]="form.controls.fg.invalid" aria-describedby="fg-help fg-error" />
+             [attr.aria-invalid]="form.controls.fg.invalid"
+             [attr.aria-describedby]="showError('fg') ? 'fg-help fg-error' : 'fg-help'" />
       <input type="color" aria-label="Pick text colour" [value]="fg() ?? '#000000'"
              (input)="setFromPicker('fg', $any($event.target).value)" />
     </div>
     <p id="fg-help" class="hint">3 or 6 hex digits, for example #1a1a1a</p>
-    @if (form.controls.fg.invalid && form.controls.fg.touched) {
+    @if (showError('fg')) {
       <p id="fg-error" class="error">Enter a valid hex colour, such as #1a1a1a.</p>
     }
   </div>
@@ -19,12 +20,13 @@
     <label for="bg">Background colour (hex)</label>
     <div class="row">
       <input id="bg" type="text" formControlName="bg" autocomplete="off" spellcheck="false"
-             [attr.aria-invalid]="form.controls.bg.invalid" aria-describedby="bg-help bg-error" />
+             [attr.aria-invalid]="form.controls.bg.invalid"
+             [attr.aria-describedby]="showError('bg') ? 'bg-help bg-error' : 'bg-help'" />
       <input type="color" aria-label="Pick background colour" [value]="bg() ?? '#ffffff'"
              (input)="setFromPicker('bg', $any($event.target).value)" />
     </div>
     <p id="bg-help" class="hint">3 or 6 hex digits, for example #ffffff</p>
-    @if (form.controls.bg.invalid && form.controls.bg.touched) {
+    @if (showError('bg')) {
       <p id="bg-error" class="error">Enter a valid hex colour, such as #ffffff.</p>
     }
   </div>
@@ -34,7 +36,7 @@
   <section aria-labelledby="res-h">
     <h2 id="res-h">Result</h2>
     <div aria-live="polite" aria-atomic="true">
-      <p class="ratio"><strong>{{ ratioText() }}</strong> : 1</p>
+      <p class="ratio">Contrast ratio: <strong>{{ ratioText() }}</strong> : 1</p>
     </div>
     <table>
       <caption class="sr-only">WCAG 2.2 contrast results</caption>
@@ -49,8 +51,8 @@
   <section aria-labelledby="prev-h">
     <h2 id="prev-h">Live preview</h2>
     <div class="preview" [style.color]="fg()" [style.background-color]="bg()">
-      <p class="big">Large sample text (24px)</p>
-      <p>Normal sample text. The quick brown fox jumps over the lazy dog.</p>
+      <p class="big">Colour should never be the only way to tell two things apart, so check the contrast of every pair you use.</p>
+      <p>Some people cannot tell red from green, so a good contrast ratio keeps your text readable for everyone.</p>
     </div>
   </section>
 
