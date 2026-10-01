@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+body { 
+    font-family: system-ui, sans-serif; 
+    color: #1a1a1a; 
+    background: #fff; 
+    margin: 0; 
+    line-height: 1.5; 
+}
+
+header, main { 
+    max-width: 60rem; 
+    margin: 0 auto; 
+    padding: 1rem; 
+}
+
+nav { 
+    display: flex; 
+    gap: 1.25rem; 
+}
+
+a { 
+    color: #0b5cad; 
+    text-decoration: underline; 
+}
+
+a.active { 
+    font-weight: 700; 
+}
+
+:focus-visible { 
+    outline: 3px solid #000; 
+    outline-offset: 2px; 
+    box-shadow: 0 0 0 5px #fff; 
+}
+
+.sr-only { 
+    position: absolute; 
+    width: 1px; 
+    height: 1px; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    white-space: nowrap; 
+}
+
+.skip-link { 
+    position: absolute; 
+    left: -999px; 
+}
+
+.skip-link:focus { 
+    left: 8px; 
+    top: 8px; 
+    background: #fff; 
+    padding: .5rem; 
+    z-index: 10; 
+}
