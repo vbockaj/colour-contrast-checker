@@ -1,0 +1,64 @@
+.field { 
+    margin-bottom: 1rem; 
+}
+
+.row { 
+    display: flex; 
+    gap: .5rem; 
+    align-items: center; 
+}
+
+input[type='text'] { 
+    font: inherit; 
+    padding: .4rem; 
+    border: 2px solid #555; 
+    border-radius: 4px; 
+}
+
+.hint { 
+    font-size: .875rem; 
+    margin: .25rem 0; 
+}
+
+.error { 
+    font-weight: 600; 
+    margin: .25rem 0; 
+}
+
+.error::before { 
+    content: '⚠ '; 
+}
+.ratio { 
+    font-size: 2rem; 
+    margin: .5rem 0; 
+}
+
+table { 
+    border-collapse: collapse; 
+}
+
+th, td { 
+    border: 1px solid #555; 
+    padding: .4rem .8rem; 
+    text-align: left; 
+}
+.preview { 
+    padding: 1.5rem; 
+    border: 1px solid #555; 
+    border-radius: 6px; 
+}
+.big { 
+    font-size: 1.5rem; 
+}
+.sim-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); 
+    gap: 1rem; 
+    margin-top: 1rem; 
+}
+.sim { 
+    margin: 0; 
+    padding: 1rem; 
+    border: 1px solid #555; 
+    border-radius: 6px; 
+}
