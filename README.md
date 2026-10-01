@@ -2,7 +2,7 @@
 
 A small web app I built with Angular and TypeScript to learn Angular. You pick two colours and it tells you if the text is readable (WCAG contrast), and it shows how the colours look to people with colour blindness.
 
-**Live demo:** [ADD LINK]
+**Live demo:** https://vbockaj.github.io/colour-contrast-checker/
 
 ## Why I made it
 
