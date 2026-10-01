@@ -1,1 +1,54 @@
-<p>palette works!</p>
+<h1>Palette matrix</h1>
+<p>Enter 3 to 6 colours. Each cell shows the contrast ratio in normal vision, then the lowest ratio across the three simulations and greyscale.</p>
+
+<ul class="inputs">
+  @for (c of list(); track $index) {
+    <li>
+      <span class="swatch" aria-hidden="true" [style.background-color]="swatch(c)"></span>
+      <label [for]="'c' + $index">Colour {{ $index + 1 }} (hex)</label>
+      <input [id]="'c' + $index" type="text" [value]="c" autocomplete="off" spellcheck="false"
+             (input)="update($index, $any($event.target).value)" />
+      @if (!swatch(c)) {
+        <span class="error">Not a valid hex colour</span>
+      }
+      <button type="button" (click)="remove($index)" [disabled]="list().length <= min"
+              [attr.aria-label]="'Remove colour ' + ($index + 1)">Remove</button>
+    </li>
+  }
+</ul>
+
+<button type="button" (click)="add()" [disabled]="list().length >= max">Add colour</button>
+
+<h2>Results</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Contrast matrix">
+  <table>
+    <caption>Contrast ratio per pair: normal vision / worst case across simulations</caption>
+    <thead>
+      <tr>
+        <td></td>
+        @for (c of list(); track $index) {
+          <th scope="col">{{ c }}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of matrix(); track $index; let i = $index) {
+        <tr>
+          <th scope="row">{{ list()[i] }}</th>
+          @for (cell of row; track $index) {
+            <td>
+              @if (cell) {
+                {{ cell.normal }} / {{ cell.worst }}
+                @if (cell.merges) {
+                  <strong class="warn">⚠ Merges under simulation</strong>
+                }
+              } @else {
+                —
+              }
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

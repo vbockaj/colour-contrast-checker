@@ -1,0 +1,72 @@
+.inputs { 
+    list-style: none; 
+    padding: 0; 
+}
+
+.inputs li { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: .5rem; 
+    align-items: center; 
+    margin-bottom: .5rem; 
+}
+
+.swatch { 
+    width: 1.5rem; 
+    height: 1.5rem; 
+    border: 2px solid #555; 
+    border-radius: 4px; 
+    display: inline-block; 
+}
+
+input[type='text'] { 
+    font: inherit; 
+    padding: .4rem; 
+    border: 2px solid #555; 
+    border-radius: 4px; 
+}
+
+button { 
+    font: inherit; 
+    padding: .4rem .8rem; 
+    border: 2px solid #1a1a1a; 
+    border-radius: 4px; 
+    background: #fff; 
+    cursor: pointer; 
+}
+
+button:disabled { 
+    opacity: .6; 
+    cursor: not-allowed; 
+}
+
+.error { 
+    font-weight: 600; 
+}
+
+.error::before { 
+    content: '⚠ '; 
+}
+
+.table-wrap { 
+    overflow-x: auto; 
+}
+
+table { 
+    border-collapse: collapse; 
+}
+
+caption { 
+    text-align: left; 
+    margin-bottom: .5rem; 
+}
+
+th, td { 
+    border: 1px solid #555; 
+    padding: .4rem .8rem; 
+    text-align: left; 
+}
+
+.warn { 
+    display: block; 
+}
