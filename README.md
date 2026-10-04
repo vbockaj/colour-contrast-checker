@@ -36,7 +36,6 @@ Since the app is about accessibility, I wanted to test it too.
 
 | What I tested | What I found | What I changed |
 | --- | --- | --- |
-| WAVE | [ADD YOUR WAVE RESULT] | [ADD WHAT YOU CHANGED] |
 | Keyboard only | I went through all three pages with just the keyboard. The skip link works, I can reach every control, I can always see where the focus is, the slider works with the arrow keys, and Add/Remove work with Enter and Space. | Nothing |
 | Zoom 200% and 400% | Nothing gets cut off or overlaps. At 400% the page does not scroll sideways. Only the palette table scrolls sideways on its own, which is allowed for tables. | Nothing |
 
